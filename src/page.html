@@ -75,7 +75,6 @@ const track = delay => {
   const img = document.createElement('img')
 
   img.onload = () => {
-    console.log('update', pathname)
     update(pathname)
   }
 
@@ -86,7 +85,7 @@ const track = delay => {
 
 let clicked = false
 
-document.getElementById('button', e => {
+document.getElementById('button').addEventListener('click', e => {
   if (clicked) {
     return
   }
@@ -97,7 +96,7 @@ document.getElementById('button', e => {
   track(gif2_delay)
 })
 
-console.log(get(), gif1_delay, gif2_delay)
+console.log(get())
 
 update(location.pathname)
 
