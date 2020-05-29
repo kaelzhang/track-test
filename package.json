@@ -1,0 +1,53 @@
+{
+  "name": "track-test",
+  "version": "1.0.0",
+  "description": "tracking test",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src",
+    "test": "NODE_DEBUG=track-test nyc ava --timeout=10s --verbose",
+    "test:dev": "NODE_DEBUG=track-test nyc ava --timeout=10s --verbose && npm run report:dev",
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "posttest": "npm run report",
+    "report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "report:dev": "nyc report --reporter=html && npm run report:open",
+    "report:open": "open coverage/index.html"
+  },
+  "files": [
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaelzhang/track-test.git"
+  },
+  "keywords": [
+    "track-test"
+  ],
+  "engines": {
+    "node": ">= 6"
+  },
+  "ava": {
+    "files": [
+      "test/*.test.js"
+    ]
+  },
+  "author": "kaelzhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaelzhang/track-test/issues"
+  },
+  "devDependencies": {
+    "@ostai/eslint-config": "^3.5.0",
+    "ava": "^3.8.2",
+    "codecov": "^3.7.0",
+    "eslint": "^7.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "nyc": "^15.0.1"
+  },
+  "dependencies": {
+    "@koa/router": "^8.0.8",
+    "delay": "^4.3.0",
+    "koa": "^2.12.0"
+  }
+}
