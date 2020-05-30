@@ -17,16 +17,10 @@
 
 tracking test
 
-## Install
+## start
 
 ```sh
-$ npm i track-test
-```
-
-## Usage
-
-```js
-const track_test = require('track-test')
+$ npm run start
 ```
 
 ## License

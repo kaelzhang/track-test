@@ -13,23 +13,19 @@ const html = fs.readFileSync(join(__dirname, 'page.html')).toString()
 
 class Logger {
   constructor () {
-    this._pages = Object.create(null)
+    this._pages = {}
   }
 
   track (page, id) {
     const counts = this._pages[page] || (
-      this._pages[page] = Object.create(null)
+      this._pages[page] = {}
     )
 
-    if (id in counts) {
-      counts[id] += 1
-      return
-    }
-
-    counts[id] = 1
+    counts[id] = (counts[id] || 0) + 1
   }
 
-  report (page) {
+  report () {
+    // eslint-disable-next-line no-console
     console.log(this._pages)
   }
 }
